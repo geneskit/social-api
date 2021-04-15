@@ -1,11 +1,11 @@
 const router = require('express').Router();
 
-const getAllUsers = require('../../controllers/thought');
-const getThoughtById = require('../../controllers/thought');
-const addThought = require('../../controllers/thought');
-const removeThought = require('../../controllers/thought');
-const addReaction = require('../../controllers/thought');
-const removeReaction = require('../../controllers/thought');
+const getAllUsers = require("../../controllers/user");
+const getUserById = require("../../controllers/user");
+const addUser = require("../../controllers/user");
+const deleteUser = require("../../controllers/user");
+const addReaction = require("../../controllers/user");
+const removeReaction = require("../../controllers/user");
 
 router 
     .route('/')
@@ -15,8 +15,8 @@ router
 router
     .route('/:id')
     .get(getUserById)
-    .delete(deleteUser)
     .put(updateUser)
+    .delete(deleteUser)
 
 router
     .route("/:id/friends/:friendId")
