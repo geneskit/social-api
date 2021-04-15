@@ -5,7 +5,7 @@ const ThoughtController = {
 
   },
   getAllThoughts(req, res) {
-    Thought.find({})
+    Thought.find()
       .select("-__v")
       .sort({ _id: -1 })
       .then((thoughtData) => res.json(thoughtData))
@@ -13,6 +13,7 @@ const ThoughtController = {
         console.log(e);
         res.status(400).json(e);
       });
+      
   },
   getThoughtById({ x }, res) {
     Thought.findOne({ _id: x.thoughtId }).select("-__V").then(thoughtData);
